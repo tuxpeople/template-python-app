@@ -19,7 +19,7 @@ Then:
 1. **Replace the app:** `app.py`, `templates/`, `tests/`, `requirements.txt`. Adjust the `COPY` lines and the gunicorn `ENTRYPOINT` in the `Dockerfile` if the module is not `app:app`.
 2. **Names:** `name` in `pyproject.toml`, `package-name` in `release-please-config.json`, the OCI labels in the `Dockerfile`, this README and `CLAUDE.md`.
 3. **Smoke test:** adapt the endpoints in `.github/workflows/tests.yml` (step "Smoke test").
-4. **First version:** the first `feat` commit releases `0.1.0`. To continue an existing image's versions, set `"release-as": "X.Y.Z"` in `release-please-config.json` for the first release and **remove it afterwards** (it applies to every release until removed).
+4. **First version:** the first `feat` commit releases `0.1.0` (`initial-version` in `release-please-config.json`; without it release-please starts at `1.0.0`). To continue an existing image's versions, set `"release-as": "X.Y.Z"` in `release-please-config.json` for the first release and **remove it afterwards** (it applies to every release until removed).
 5. **Repository settings:** squash/rebase merges only, delete branches on merge.
 6. **Release app:** install the release-please GitHub App on the repository, set the variable `RELEASE_APP_CLIENT_ID` and the secret `RELEASE_APP_PRIVATE_KEY`.
 7. **Package access:** if the package `ghcr.io/<owner>/<name>` already exists, grant the new repository the **Admin** role under *Package settings → Manage Actions access*.
